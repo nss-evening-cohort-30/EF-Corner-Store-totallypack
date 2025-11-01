@@ -41,13 +41,13 @@ public class CornerStoreApp : WebApplicationFactory<Program>
                 var amy = new Cashier { FirstName = "Amy", LastName = "Simpson" };
                 var derek = new Cashier { FirstName = "Derek", LastName = "Masters" };
                 var charlie = new Cashier { FirstName = "Charlie", LastName = "Vernon" };
-                context.Cashiers.AddRange(new Cashier[] { amy, derek, charlie });
+                context.Cashiers.AddRange([amy, derek, charlie]);
                 context.SaveChanges();
 
                 var food = new Category { CategoryName = "Food" };
                 var cleaning = new Category { CategoryName = "Cleaning" };
                 var homeImprovement = new Category { CategoryName = "Home Improvement" };
-                context.Categories.AddRange(new Category[] { food, cleaning, homeImprovement });
+                context.Categories.AddRange([food, cleaning, homeImprovement]);
                 context.SaveChanges();
 
                 var tuna = new Product { ProductName = "Tuna", Brand = "Bumble Bee", Price = 1.25M, CategoryId = food.Id };
@@ -56,11 +56,11 @@ public class CornerStoreApp : WebApplicationFactory<Program>
                 var dishSoap = new Product { ProductName = "Dishwashing Soap", Brand = "Dawn", Price = 3.75M, CategoryId = cleaning.Id };
                 var pictureKit = new Product { ProductName = "picture hanging kit", Brand = "Acme", Price = 8.75M, CategoryId = homeImprovement.Id };
                 var milk = new Product { ProductName = "Milk 2%", Brand = "Dairy", Price = 1.99M, CategoryId = food.Id };
-                context.Products.AddRange(new Product[] { tuna, tomatoes, tp, dishSoap, pictureKit, milk });
+                context.Products.AddRange([tuna, tomatoes, tp, dishSoap, pictureKit, milk]);
                 context.SaveChanges();
 
-                context.Orders.AddRange(new Order[]
-                {
+                context.Orders.AddRange(
+                [
                     new Order
                     {
                         CashierId = amy.Id,
@@ -104,7 +104,7 @@ public class CornerStoreApp : WebApplicationFactory<Program>
                             new OrderProduct { ProductId = tomatoes.Id, Quantity = 1}
                         }
                     },
-                });
+                ]);
                 context.SaveChanges();
 
             }
